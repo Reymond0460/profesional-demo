@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mariana Soto · Consultoría Profesional</title>
+  <meta name="description" content="Asesoría profesional clara y cercana. Agenda tu primera consulta en línea en menos de un minuto.">
+  <meta name="theme-color" content="#1c5d58">
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
+  <noscript><style>.aparece{opacity:1;transform:none}</style></noscript>
+</head>
+<body class="con-barra font-texto">
+  <a href="#contenido" class="solo-lector focus:not-sr-only">Saltar al contenido</a>
+
+  <header class="sticky top-0 z-50 bg-arena-50/90 backdrop-blur border-b border-arena-200">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 min-h-[44px]" aria-label="Inicio">
+        <img src="img/logo.svg" alt="" width="36" height="36">
+        <span class="font-titulo font-semibold text-lg text-marca-800" data-marca="nombre"></span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium" aria-label="Principal">
+        <a class="hover:text-marca-600" href="#servicios">Servicios</a>
+        <a class="hover:text-marca-600" href="#proceso">Cómo funciona</a>
+        <a class="hover:text-marca-600" href="#sobre-mi">Sobre mí</a>
+        <a class="hover:text-marca-600" href="#testimonios">Testimonios</a>
+        <a class="hover:text-marca-600" href="#preguntas">Preguntas</a>
+        <a class="btn btn-primario btn-chico" href="agendar.html">Agendar consulta</a>
+      </nav>
+      <button id="menu-boton" class="md:hidden w-11 h-11 flex items-center justify-center rounded-lg" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-movil">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+    <nav id="menu-movil" class="md:hidden border-t border-arena-200 bg-arena-50 px-4 py-2 flex flex-col text-base font-medium" aria-label="Menú móvil" hidden>
+      <a class="py-3" href="#servicios">Servicios</a>
+      <a class="py-3" href="#proceso">Cómo funciona</a>
+      <a class="py-3" href="#sobre-mi">Sobre mí</a>
+      <a class="py-3" href="#testimonios">Testimonios</a>
+      <a class="py-3" href="#preguntas">Preguntas</a>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <!-- Portada -->
+    <section class="portada-fondo">
+      <div class="max-w-6xl mx-auto px-4 py-14 md:py-24 grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <span class="sello">● <span data-marca="rubro"></span></span>
+          <h1 class="mt-5 text-4xl md:text-5xl font-semibold leading-tight text-marca-900">Decisiones claras, <em class="text-marca-600 not-italic">resultados reales.</em></h1>
+          <p class="mt-5 text-lg text-tinta-500 max-w-lg" data-marca="eslogan"></p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a class="btn btn-primario" href="agendar.html">Agendar mi consulta</a>
+            <a class="btn btn-secundario" href="#servicios">Ver servicios</a>
+          </div>
+          <ul class="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-tinta-500">
+            <li>✓ Respuesta en menos de 24 h</li>
+            <li>✓ Presencial u online</li>
+            <li>✓ Sin letra chica</li>
+          </ul>
+        </div>
+        <div class="relative">
+          <img class="rounded-3xl w-full aspect-[4/3] object-cover shadow-xl" width="800" height="600"
+               src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1000&q=75"
+               alt="Reunión de asesoría profesional entre dos personas">
+          <div class="hidden sm:block absolute -bottom-5 -left-5 tarjeta px-5 py-4">
+            <p class="font-titulo text-3xl font-semibold text-marca-700">+10 años</p>
+            <p class="text-xs text-tinta-500">de experiencia acompañando clientes</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" class="max-w-6xl mx-auto px-4 py-16">
+      <h2 class="text-3xl font-semibold text-marca-900">Servicios</h2>
+      <p class="mt-2 text-tinta-500 max-w-xl">Elige la modalidad que mejor se ajuste a lo que necesitas hoy.</p>
+      <div id="lista-servicios" class="mt-8 grid gap-5 md:grid-cols-3"></div>
+    </section>
+
+    <!-- Proceso -->
+    <section id="proceso" class="bg-marca-900 text-arena-50">
+      <div class="max-w-6xl mx-auto px-4 py-16">
+        <h2 class="text-3xl font-semibold">Cómo funciona</h2>
+        <ol class="mt-8 grid gap-6 md:grid-cols-3">
+          <li class="aparece"><span class="font-titulo text-4xl text-acento-300">1</span><h3 class="mt-2 text-xl font-semibold">Reserva en línea</h3><p class="mt-1 text-marca-100/80">Elige servicio, día y hora en menos de un minuto.</p></li>
+          <li class="aparece"><span class="font-titulo text-4xl text-acento-300">2</span><h3 class="mt-2 text-xl font-semibold">Confirmamos contigo</h3><p class="mt-1 text-marca-100/80">Recibes la confirmación por WhatsApp o correo.</p></li>
+          <li class="aparece"><span class="font-titulo text-4xl text-acento-300">3</span><h3 class="mt-2 text-xl font-semibold">Conversamos y avanzamos</h3><p class="mt-1 text-marca-100/80">Sales de la sesión con un plan claro y próximos pasos.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Sobre mí -->
+    <section id="sobre-mi" class="max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-5 gap-10 items-center">
+      <img class="md:col-span-2 rounded-3xl w-full aspect-[4/5] object-cover shadow-lg" width="640" height="800" loading="lazy"
+           src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=75"
+           alt="Retrato de la profesional">
+      <div class="md:col-span-3 aparece">
+        <h2 class="text-3xl font-semibold text-marca-900">Sobre mí</h2>
+        <p class="mt-4 text-tinta-700">Soy <strong data-marca="nombre"></strong>, profesional independiente con más de una década acompañando a personas y pequeñas empresas. Creo en explicar las cosas con palabras simples y en dejar siempre un plan de acción concreto.</p>
+        <p class="mt-3 text-tinta-500">Este texto es un ejemplo: aquí se cuenta la formación, la experiencia y la forma de trabajar de cada profesional.</p>
+        <ul class="mt-6 grid grid-cols-3 gap-4 text-center">
+          <li class="tarjeta py-4"><strong class="block font-titulo text-2xl text-marca-700">10+</strong><span class="text-xs text-tinta-500">años de experiencia</span></li>
+          <li class="tarjeta py-4"><strong class="block font-titulo text-2xl text-marca-700">350</strong><span class="text-xs text-tinta-500">clientes atendidos</span></li>
+          <li class="tarjeta py-4"><strong class="block font-titulo text-2xl text-marca-700">4,9★</strong><span class="text-xs text-tinta-500">valoración media</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section id="testimonios" class="bg-arena-100">
+      <div class="max-w-6xl mx-auto px-4 py-16">
+        <h2 class="text-3xl font-semibold text-marca-900">Lo que dicen mis clientes</h2>
+        <div id="lista-testimonios" class="mt-8 grid gap-5 md:grid-cols-3"></div>
+        <p class="mt-4 text-xs text-tinta-500">Testimonios de ejemplo con personas ficticias.</p>
+      </div>
+    </section>
+
+    <!-- Preguntas -->
+    <section id="preguntas" class="max-w-3xl mx-auto px-4 py-16">
+      <h2 class="text-3xl font-semibold text-marca-900">Preguntas frecuentes</h2>
+      <div class="faq mt-6">
+        <details><summary>¿Cómo puedo pagar?</summary><p>Aceptamos transferencia y tarjeta. El pago se coordina al confirmar la cita.</p></details>
+        <details><summary>¿Puedo cambiar o cancelar mi hora?</summary><p>Sí, avisando con al menos 24 horas de anticipación por WhatsApp o correo.</p></details>
+        <details><summary>¿Las sesiones son presenciales u online?</summary><p>Ambas modalidades están disponibles; lo definimos al confirmar tu cita.</p></details>
+        <details><summary>¿Mis datos están protegidos?</summary><p>Sí. Solo usamos tus datos para gestionar tu cita y nunca los compartimos con terceros.</p></details>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="px-4 pb-20">
+      <div class="max-w-6xl mx-auto rounded-3xl bg-marca-800 text-arena-50 px-6 py-12 md:p-14 grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h2 class="text-3xl font-semibold">¿Conversamos?</h2>
+          <p class="mt-3 text-marca-100/85">Agenda en línea o escríbeme directamente. Respondo en menos de 24 horas.</p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a class="btn bg-acento-500 text-tinta-900 hover:bg-acento-300" href="agendar.html">Agendar consulta</a>
+            <a class="btn btn-secundario !text-arena-50 !border-arena-50/60 hover:!bg-white/10" data-wa="" href="#">Escribir por WhatsApp</a>
+          </div>
+        </div>
+        <ul class="space-y-2 text-marca-100/90">
+          <li>✉ <a class="underline" data-mailto href="#"><span data-marca="email"></span></a></li>
+          <li>☎ <span data-marca="telefono"></span></li>
+          <li>⌖ <span data-marca="ciudad"></span></li>
+          <li>◷ <span data-marca="horarioTexto"></span></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-arena-200 bg-arena-50">
+    <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row gap-4 justify-between text-sm text-tinta-500">
+      <p>© <span data-marca="nombre"></span> · Sitio de demostración creado por <a class="underline hover:text-marca-700" href="https://tiforti.cl" target="_blank" rel="noopener">TiforTi</a></p>
+      <nav class="flex flex-wrap gap-x-5 gap-y-1" aria-label="Legal">
+        <a class="py-3 hover:text-marca-700" href="politica-de-privacidad.html">Privacidad</a>
+        <a class="py-3 hover:text-marca-700" href="cookies.html">Cookies</a>
+        <a class="py-3 hover:text-marca-700" href="terminos.html">Términos</a>
+        <a class="py-3 hover:text-marca-700" href="admin.html">Panel (demo)</a>
+      </nav>
+    </div>
+  </footer>
+
+  <a class="wa-flotante" data-wa="" href="#" aria-label="Escribir por WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.200l-.3-.2-3 .8.8-2.900-.2-.3A8.200 8.200 0 1 1 12 20.200zm4.500-6.100c-.2-.1-1.500-.7-1.700-.8-.2-.1-.4-.1-.6.100l-.8 1c-.1.200-.3.200-.5.100a6.700 6.700 0 0 1-3.300-2.900c-.2-.4.200-.4.700-1.300.1-.2 0-.3 0-.5l-.8-1.900c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.100-.7.300-.2.300-.9.900-.9 2.200s.9 2.500 1 2.700c.1.200 1.800 2.800 4.400 3.900 1.600.7 2.200.7 3 .6.500-.1 1.500-.6 1.700-1.200.2-.6.2-1.100.2-1.200-.1-.1-.3-.2-.5-.3z"/></svg>
+  </a>
+
+  <div class="barra-movil"><a class="btn btn-primario w-full" href="agendar.html">Agendar consulta</a></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/repo.js"></script>
+  <script src="js/nucleo.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/inicio.js"></script>
+</body>
+</html>

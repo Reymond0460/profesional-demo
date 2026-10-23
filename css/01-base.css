@@ -1,0 +1,46 @@
+/* 01-base.css — variables de marca, tipografía base y accesibilidad. */
+
+:root {
+  --c-marca: #1c5d58;
+  --c-marca-osc: #173e3c;
+  --c-marca-clara: #effaf8;
+  --c-acento: #d9a441;
+  --c-fondo: #faf8f5;
+  --c-superficie: #ffffff;
+  --c-borde: #e7e0d3;
+  --c-texto: #14201f;
+  --c-texto-suave: #5b6866;
+  --c-error: #b42318;
+  --c-ok: #1f7a4d;
+  --radio: 14px;
+  --sombra: 0 1px 2px rgba(20, 32, 31, 0.06), 0 8px 24px rgba(20, 32, 31, 0.06);
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+
+body {
+  background: var(--c-fondo);
+  color: var(--c-texto);
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, .titulo { font-family: 'Fraunces', Georgia, serif; letter-spacing: -0.01em; }
+
+/* El atributo hidden debe ganar siempre a las clases de display de Tailwind */
+[hidden] { display: none !important; }
+
+/* Foco visible para quien navega con teclado */
+:focus-visible { outline: 3px solid var(--c-acento); outline-offset: 2px; border-radius: 6px; }
+
+/* Texto solo para lectores de pantalla */
+.solo-lector {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}

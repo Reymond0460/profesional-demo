@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Panel de administración · Demo</title>
+  <meta name="theme-color" content="#1c5d58">
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body class="font-texto">
+  <!-- Acceso por PIN (no se cierra con Esc ni clic afuera) -->
+  <div id="modal-pin" class="modal-fondo" role="dialog" aria-modal="true" aria-labelledby="t-pin" hidden>
+    <div class="modal-caja">
+      <h1 id="t-pin" class="text-2xl font-semibold text-marca-900">Panel de administración</h1>
+      <p class="mt-2 text-sm text-tinta-500">Ingresa el PIN de la demo: <strong id="pin-demo" class="text-marca-700"></strong></p>
+      <form id="form-pin" class="mt-4 grid gap-3" novalidate>
+        <div class="campo">
+          <label for="pin">PIN</label>
+          <input id="pin" type="password" inputmode="numeric" autocomplete="off" maxlength="8" required>
+          <p id="error-pin" class="campo-error" role="alert" hidden>PIN incorrecto. Inténtalo de nuevo.</p>
+        </div>
+        <button class="btn btn-primario" type="submit">Entrar</button>
+        <a class="text-sm text-center underline text-tinta-500 py-2" href="index.html">← Volver al sitio</a>
+      </form>
+    </div>
+  </div>
+
+  <div id="panel" hidden>
+    <header class="bg-marca-900 text-arena-50">
+      <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <img src="img/logo.svg" alt="" width="34" height="34">
+          <span class="font-titulo font-semibold">Panel · <span data-marca="nombre"></span></span>
+        </div>
+        <div class="flex gap-2">
+          <a class="btn btn-secundario btn-chico !text-arena-50 !border-arena-50/50 hover:!bg-white/10" href="index.html">Ver sitio</a>
+          <button id="btn-salir" class="btn btn-secundario btn-chico !text-arena-50 !border-arena-50/50 hover:!bg-white/10" type="button">Salir</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 py-8">
+      <div class="pestanas" role="tablist" aria-label="Secciones del panel">
+        <button class="pestana" role="tab" id="tab-citas" aria-selected="true" aria-controls="panel-citas">Citas</button>
+        <button class="pestana" role="tab" id="tab-servicios" aria-selected="false" aria-controls="panel-servicios">Servicios</button>
+        <button class="pestana" role="tab" id="tab-horarios" aria-selected="false" aria-controls="panel-horarios">Horarios</button>
+        <button class="pestana" role="tab" id="tab-ajustes" aria-selected="false" aria-controls="panel-ajustes">Ajustes</button>
+      </div>
+
+      <section id="panel-citas" role="tabpanel" aria-labelledby="tab-citas" class="mt-6">
+        <div id="cifras" class="grid grid-cols-3 gap-3"></div>
+        <div class="mt-6 flex items-center justify-between gap-3">
+          <h2 class="text-xl font-semibold">Citas agendadas</h2>
+          <div class="campo !flex-row items-center gap-2">
+            <label for="filtro-citas" class="whitespace-nowrap">Mostrar</label>
+            <select id="filtro-citas">
+              <option value="todas">Todas</option>
+              <option value="pendiente">Pendientes</option>
+              <option value="confirmada">Confirmadas</option>
+              <option value="cancelada">Canceladas</option>
+            </select>
+          </div>
+        </div>
+        <ul id="lista-citas" class="mt-4 space-y-3"></ul>
+      </section>
+
+      <section id="panel-servicios" role="tabpanel" aria-labelledby="tab-servicios" class="mt-6" hidden>
+        <h2 class="text-xl font-semibold">Servicios y precios</h2>
+        <p class="text-sm text-tinta-500 mt-1">Los cambios se reflejan al instante en el sitio público.</p>
+        <div id="lista-servicios" class="mt-4 space-y-4"></div>
+      </section>
+
+      <section id="panel-horarios" role="tabpanel" aria-labelledby="tab-horarios" class="mt-6" hidden>
+        <h2 class="text-xl font-semibold">Días y horas de atención</h2>
+        <form id="form-horarios" class="mt-4 tarjeta p-5 space-y-5">
+          <fieldset><legend class="font-semibold mb-2">Días</legend><div id="dias-atencion" class="flex flex-wrap gap-2"></div></fieldset>
+          <fieldset><legend class="font-semibold mb-2">Horas (cada una dura un bloque)</legend><div id="horas-atencion" class="flex flex-wrap gap-2"></div></fieldset>
+          <button class="btn btn-primario" type="submit">Guardar horarios</button>
+        </form>
+      </section>
+
+      <section id="panel-ajustes" role="tabpanel" aria-labelledby="tab-ajustes" class="mt-6" hidden>
+        <h2 class="text-xl font-semibold">Ajustes de la demo</h2>
+        <div class="tarjeta p-5 mt-4">
+          <p class="text-tinta-500 text-sm">Los datos viven solo en este navegador. Restablecer borra tus cambios y vuelve a cargar los datos de ejemplo.</p>
+          <button id="btn-reiniciar" class="btn btn-peligro mt-4" type="button">Restablecer demo</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/repo.js"></script>
+  <script src="js/nucleo.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

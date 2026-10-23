@@ -1,0 +1,15 @@
+/*
+ * estilos.css — único CSS que cargan las páginas. Importa los módulos en orden.
+ *
+ * ÍNDICE (qué archivo cambia qué):
+ *   tailwind.css         GENERADO con "npm run css". No editar a mano.
+ *   01-base.css          Variables de color, tipografía, foco, accesibilidad.
+ *   02-componentes.css   Botones, campos, tarjetas, modales, avisos, cookies.
+ *   03-secciones.css     Portada, barra móvil, WhatsApp flotante, FAQ, agenda.
+ *   04-admin.css         Panel de administración (pestañas, citas, tablas).
+ */
+@import url('tailwind.css');
+@import url('01-base.css');
+@import url('02-componentes.css');
+@import url('03-secciones.css');
+@import url('04-admin.css');

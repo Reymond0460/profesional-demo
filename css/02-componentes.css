@@ -1,0 +1,76 @@
+/* 02-componentes.css — piezas reutilizables: botones, campos, tarjetas, modal, avisos, cookies. */
+
+/* ---------- Botones (alto mínimo 44px para pantallas táctiles) ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  min-height: 44px; padding: 0.65rem 1.4rem; border-radius: 999px;
+  font-weight: 600; font-size: 0.95rem; line-height: 1.2; cursor: pointer;
+  border: 2px solid transparent; transition: background 0.2s, color 0.2s, transform 0.15s, border-color 0.2s;
+}
+.btn:active { transform: scale(0.98); }
+.btn[disabled] { opacity: 0.5; cursor: not-allowed; }
+.btn-primario { background: var(--c-marca); color: #fff; }
+.btn-primario:hover:not([disabled]) { background: var(--c-marca-osc); }
+.btn-secundario { background: transparent; color: var(--c-marca); border-color: var(--c-marca); }
+.btn-secundario:hover:not([disabled]) { background: var(--c-marca-clara); }
+.btn-peligro { background: transparent; color: var(--c-error); border-color: var(--c-error); }
+.btn-peligro:hover:not([disabled]) { background: #fef3f2; }
+.btn-chico { min-height: 44px; padding: 0.4rem 1rem; font-size: 0.85rem; }
+
+/* ---------- Tarjetas ---------- */
+.tarjeta {
+  background: var(--c-superficie); border: 1px solid var(--c-borde);
+  border-radius: var(--radio); box-shadow: var(--sombra);
+}
+
+/* ---------- Campos de formulario ---------- */
+.campo { display: flex; flex-direction: column; gap: 0.35rem; }
+.campo label { font-size: 0.85rem; font-weight: 600; color: var(--c-texto); }
+.campo input, .campo select, .campo textarea {
+  min-height: 44px; width: 100%; padding: 0.6rem 0.85rem; font: inherit;
+  background: #fff; border: 1.5px solid var(--c-borde); border-radius: 10px; color: var(--c-texto);
+}
+.campo input:focus, .campo select:focus, .campo textarea:focus {
+  border-color: var(--c-marca); outline: 3px solid rgba(217, 164, 65, 0.45); outline-offset: 0;
+}
+.campo [aria-invalid="true"] { border-color: var(--c-error); }
+.campo-error { color: var(--c-error); font-size: 0.82rem; font-weight: 500; }
+
+/* ---------- Modal ---------- */
+.modal-fondo {
+  position: fixed; inset: 0; z-index: 80; display: flex; align-items: center; justify-content: center;
+  padding: 1rem; background: rgba(8, 36, 35, 0.6); backdrop-filter: blur(3px);
+}
+.modal-fondo[hidden] { display: none; }
+.modal-caja { width: 100%; max-width: 26rem; padding: 1.75rem; background: #fff; border-radius: 18px; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3); }
+
+/* ---------- Avisos (toast) ---------- */
+.avisos { position: fixed; z-index: 90; left: 1rem; right: 1rem; bottom: 5.5rem; display: flex; flex-direction: column; gap: 0.5rem; align-items: center; pointer-events: none; }
+.aviso {
+  pointer-events: auto; max-width: 28rem; padding: 0.75rem 1.1rem; border-radius: 12px;
+  background: var(--c-texto); color: #fff; font-size: 0.9rem; box-shadow: var(--sombra);
+  animation: aviso-entra 0.25s ease-out;
+}
+.aviso-error { background: var(--c-error); }
+.aviso-ok { background: var(--c-ok); }
+@keyframes aviso-entra { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+/* ---------- Aviso de cookies ---------- */
+.cookies {
+  position: fixed; z-index: 70; left: 1rem; right: 1rem; bottom: 1rem; max-width: 36rem; margin-inline: auto;
+  display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; justify-content: space-between;
+  padding: 1rem 1.25rem; background: #fff; border: 1px solid var(--c-borde); border-radius: var(--radio); box-shadow: var(--sombra);
+  font-size: 0.85rem;
+}
+/* En móvil se sube para no tapar la barra inferior fija */
+@media (max-width: 767px) { .cookies { bottom: 5rem; } }
+
+/* ---------- Animación de aparición al hacer scroll ---------- */
+.aparece { opacity: 0; transform: translateY(14px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.aparece.visible { opacity: 1; transform: none; }
+
+/* ---------- Insignias de estado ---------- */
+.insignia { display: inline-block; padding: 0.15rem 0.65rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600; }
+.insignia-pendiente { background: #fbefd0; color: #7a5200; }
+.insignia-confirmada { background: #d9f2e3; color: #14573a; }
+.insignia-cancelada { background: #fde7e4; color: #8a1c12; }

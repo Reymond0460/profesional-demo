@@ -1,0 +1,14 @@
+{
+  "name": "profesional-independiente-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Demo TiforTi: sitio web para profesionales independientes (agenda de consultas + panel).",
+  "scripts": {
+    "css": "tailwindcss -i ./css/tailwind.src.css -o ./css/tailwind.css --minify",
+    "css:watch": "tailwindcss -i ./css/tailwind.src.css -o ./css/tailwind.css --watch",
+    "servir": "python -m http.server 5500"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}

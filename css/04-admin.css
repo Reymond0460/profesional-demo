@@ -1,0 +1,26 @@
+/* 04-admin.css — panel de administración. */
+
+.pestanas { display: flex; flex-wrap: wrap; gap: 0.4rem; border-bottom: 1px solid var(--c-borde); }
+.pestana {
+  min-height: 44px; padding: 0.55rem 1.1rem; font-weight: 600; font-size: 0.9rem; color: var(--c-texto-suave);
+  background: transparent; border: 0; border-bottom: 3px solid transparent; cursor: pointer;
+}
+.pestana[aria-selected="true"] { color: var(--c-marca); border-bottom-color: var(--c-marca); }
+
+.cifra { padding: 1rem 1.25rem; }
+.cifra strong { display: block; font-family: 'Fraunces', serif; font-size: 1.9rem; line-height: 1.1; color: var(--c-marca); }
+.cifra span { font-size: 0.8rem; color: var(--c-texto-suave); }
+
+.cita-fila { padding: 1rem 1.15rem; display: grid; gap: 0.75rem; }
+@media (min-width: 768px) { .cita-fila { grid-template-columns: 1fr auto; align-items: center; } }
+.cita-acciones { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+.interruptor { display: inline-flex; align-items: center; gap: 0.6rem; min-height: 44px; cursor: pointer; font-weight: 500; }
+.interruptor input { width: 22px; height: 22px; accent-color: var(--c-marca); }
+
+.dia-chip, .hora-chip {
+  display: inline-flex; align-items: center; gap: 0.4rem; min-height: 44px; padding: 0.4rem 0.9rem; cursor: pointer;
+  background: #fff; border: 1.5px solid var(--c-borde); border-radius: 999px; font-size: 0.9rem; font-weight: 500;
+}
+.dia-chip:has(input:checked), .hora-chip:has(input:checked) { background: var(--c-marca-clara); border-color: var(--c-marca); color: var(--c-marca); }
+.dia-chip input, .hora-chip input { accent-color: var(--c-marca); width: 18px; height: 18px; }

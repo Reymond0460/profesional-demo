@@ -1,0 +1,4 @@
+/* Fuente de Tailwind. NO se carga en el navegador: "npm run css" genera css/tailwind.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
